@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -24,7 +25,7 @@ class RestaurantTest {
 
         restaurant = new Restaurant("Amelie's cafe","Chennai", openingTime, closingTime);
         restaurant.addToMenu("Sweet corn soup",119);
-        restaurant.addToMenu("Vegetable lasagne", 269);
+        restaurant.addToMenu("Vegetable lasagna", 269);
 
         initialMenuSize = restaurant.getMenu().size();
     }
@@ -60,7 +61,7 @@ class RestaurantTest {
 
     @Test
     public void removing_item_from_menu_should_decrease_menu_size_by_1() throws ItemNotFoundException {
-        restaurant.removeFromMenu("Vegetable lasagne");
+        restaurant.removeFromMenu("Vegetable lasagna");
         assertEquals(initialMenuSize-1,restaurant.getMenu().size());
     }
 
@@ -71,10 +72,15 @@ class RestaurantTest {
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-    //>>>>>>>>>>>>>>>>>>>>>>>>>>>CALCULATE COST<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>><CALCULATE COST><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     @Test
     public void selected_items_from_menu_total_cost(){
-        List<Item> selectedMenuItems = null;
+        List<String> selectedMenuItems = new ArrayList<String>();
+        selectedMenuItems.add("Sweet corn soup");
+        selectedMenuItems.add("Vegetable lasagna");
         int totalCost = restaurant.getTotalCostOfSelectedItemsFromMenu(selectedMenuItems);
+        assertEquals(388, totalCost);
     }
+
+    //<<<<<<<<<<<<<<<<<<<<<<<CALCULATE COST>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
