@@ -73,8 +73,8 @@ class RestaurantTest {
 
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>CALCULATE COST<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     @Test
-    public void selected_item_from_menu_total_cost(){
-        List<Item> selectedItems = null;
-        int totalCost = restaurant.getTotalCost(selectedItems);
+    public void selected_items_from_menu_total_cost(){
+        List<Item> selectedMenuItems = null;
+        int totalCost = restaurant.getTotalCostOfSelectedItemsFromMenu(selectedMenuItems);
     }
 }
